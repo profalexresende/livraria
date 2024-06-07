@@ -1,0 +1,38 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IEnumerable<livraria.Models.Livro>
+
+<h2>Lista de Livros</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Criar Novo Livro</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Ano de Publicação</th>
+            <th>Autor</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Titulo</td>
+                <td>@item.AnoPublicacao</td>
+                <td>@item.Autor.Nome</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LivroId">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LivroId">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

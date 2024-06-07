@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model livraria.Models.Autor
+
+<h2>Deletar Autor</h2>
+
+<h3>Você realmente deseja deletar este autor?</h3>
+<div>
+    <h4>@Model.Nome</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            Nacionalidade
+        </dt>
+        <dd>
+            @Model.Nacionalidade
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="AutorId" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index">Cancelar</a>
+    </form>
+</div>
